@@ -2,20 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.textprimary400 {
+  color: #f2a945;
+}
+.textprimary500 {
+  color: #f78410;
+}
+.textprimary600 {
+  color: #e07516;
+}
+.bgprimary400 {
+  background-color: #f2a945;
+}
+.bgprimary500 {
+  background-color: #f78410;
+}
+.bgprimary600 {
+  background-color: #e07516;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.range-slider {
+  background: #f78410;
+  border-radius: 5px;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.range-slider::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  background: #f78410;
+  border-radius: 50%;
+  cursor: pointer;
 }
