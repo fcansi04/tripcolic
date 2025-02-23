@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { tours } from "@/data/Cards";
 
 const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
@@ -25,31 +25,74 @@ const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
   const [selectedFeatures, setFeatures] = useState([]);
 
   const filteredTours = tours.filter((tour) => {
+    // Her koşulu ayrı ayrı kontrol edelim
+    const locationCondition =
+      location === "" || tour.location.includes(location);
+    const themeCondition =
+      selectedThemes.length === 0 || selectedThemes.includes(tour.theme);
+    const activityCondition =
+      selectedActivitys.length === 0 ||
+      selectedActivitys.includes(tour.activity);
+    const priceCondition = tour.price <= selectedPrice;
+    const vehicleCondition =
+      selectedVehicles.length === 0 || selectedVehicles.includes(tour.vehicle);
+    const featureCondition =
+      selectedFeatures.length === 0 || selectedFeatures.includes(tour.features);
+
+    // Her koşulun sonucunu console'a yazdıralım
+    console.log(`Tour ${tour.id} conditions:`, {
+      location: locationCondition,
+      theme: themeCondition,
+      activity: activityCondition,
+      price: priceCondition,
+      vehicle: vehicleCondition,
+      feature: featureCondition,
+    });
+
     return (
-      (location === "" || tour.location.includes(location)) &&
-      (selectedThemes.length === 0 || selectedThemes.includes(tour.theme)) &&
-      (selectedActivitys.length === 0 ||
-        selectedActivitys.includes(tour.activity)) &&
-      selectedPrice <= tour.price &&
-      (selectedVehicles.length === 0 ||
-        selectedVehicles.includes(tour.vehicle)) &&
-      (selectedFeatures.length === 0 ||
-        selectedFeatures.includes(tour.features))
+      locationCondition &&
+      themeCondition &&
+      activityCondition &&
+      priceCondition &&
+      vehicleCondition &&
+      featureCondition
     );
   });
 
-  const handleButtonClick = (category, value, setSelected) => {
-    setSelected((prevSelected) => {
-      if (prevSelected.includes(value)) {
-        // Eğer seçiliyse, listeden çıkar
-        return prevSelected.filter((item) => item !== value);
-      } else {
-        // Eğer seçili değilse, listeye ekle
-        return [...prevSelected, value];
-      }
-    });
+  const handleButtonClick = (category, value) => {
+    switch (category) {
+      case "theme":
+        setTheme((prev) =>
+          prev.includes(value)
+            ? prev.filter((item) => item !== value)
+            : [...prev, value]
+        );
+        break;
+      case "activity":
+        setActivity((prev) =>
+          prev.includes(value)
+            ? prev.filter((item) => item !== value)
+            : [...prev, value]
+        );
+        break;
+      case "vehicle":
+        setVehicle((prev) =>
+          prev.includes(value)
+            ? prev.filter((item) => item !== value)
+            : [...prev, value]
+        );
+        break;
+      case "feature":
+        setFeatures((prev) =>
+          prev.includes(value)
+            ? prev.filter((item) => item !== value)
+            : [...prev, value]
+        );
+        break;
+      default:
+        break;
+    }
   };
-
   const handleReset = () => {
     setLocation("");
     setTheme([]);
@@ -75,7 +118,9 @@ const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
             className="outline-none  h-4 border-2 py-4 px-4 w-[20rem] md:[30rem]  rounded-lg"
           />
           <span
-            onClick={() => {}}
+            onClick={() => {
+              () => setpopped(false);
+            }}
             className="material-symbols-outlined absolute top-20 left-[19rem] md:left-[29rem] textprimary600 cursor-pointer"
           >
             search
@@ -93,7 +138,7 @@ const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
                       ? "bg-orange-400"
                       : "bg-white shadow-sm outline-1 outline-gray-300 "
                   } `}
-                  onClick={() => handleButtonClick("theme", theme, setTheme)}
+                  onClick={() => handleButtonClick("theme", theme)}
                 >
                   {theme}
                 </button>
@@ -113,9 +158,7 @@ const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
                       ? "bg-orange-400"
                       : "bg-white shadow-sm outline-1 outline-gray-300  "
                   } `}
-                  onClick={() =>
-                    handleButtonClick("activity", activity, setActivity)
-                  }
+                  onClick={() => handleButtonClick("activity", activity)}
                 >
                   {activity}
                 </button>
@@ -172,9 +215,7 @@ const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
                       ? "bg-orange-400"
                       : "bg-white shadow-sm outline-1 outline-gray-300  "
                   } `}
-                  onClick={() =>
-                    handleButtonClick("vehicle", vehicle, setVehicle)
-                  }
+                  onClick={() => handleButtonClick("vehicle", vehicle)}
                 >
                   {vehicle}
                 </button>
@@ -194,9 +235,7 @@ const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
                       ? "bg-orange-400"
                       : "bg-white shadow-sm outline-1 outline-gray-300  "
                   } `}
-                  onClick={() =>
-                    handleButtonClick("feature", feature, setFeatures)
-                  }
+                  onClick={() => handleButtonClick("feature", feature)}
                 >
                   {feature}
                 </button>
