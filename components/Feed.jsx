@@ -7,7 +7,9 @@ const Feed = ({ filteredCards, setfilteredCards, popped, setpopped }) => {
   console.log(filteredCards, "filteredcard");
   const cardsToShow = filteredCards?.length ? filteredCards : tours;
   return (
-    <div className={`mt-20 z-0   mx-auto relative ${popped ? "hidden" : ""}`}>
+    <div
+      className={`mt-20 z-0 ml-4   mx-auto relative ${popped ? "hidden" : ""}`}
+    >
       <div className="flex gap-10 flex-wrap rounded-lg ">
         {cardsToShow.map((card) => {
           return (
