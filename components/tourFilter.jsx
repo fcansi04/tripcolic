@@ -124,7 +124,7 @@ const TourFilter = ({
               setLocation(e.target.value);
             }}
             placeholder="Where you wanna visit(italy,spain)"
-            className="outline-none  h-4 border-2 py-4 px-4 w-[25rem]   rounded-lg"
+            className="outline-none  h-4 border-2 py-4 px-4 w-[20rem]   rounded-lg"
           />
           <span
             onClick={(e) => {
@@ -132,7 +132,7 @@ const TourFilter = ({
               setpopped(false);
               setfilteredCards(filteredTours);
             }}
-            className="material-symbols-outlined absolute top-20 left-[24rem]  textprimary600 cursor-pointer"
+            className="material-symbols-outlined absolute top-20 left-[19rem]  textprimary600 cursor-pointer"
           >
             search
           </span>
@@ -185,7 +185,7 @@ const TourFilter = ({
             value={selectedPrice}
             onChange={(e) => setPrice(e.target.value)}
             className="
-                w-[20rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
+                w-[18rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
                 accent-orange-400
                 [&::-webkit-slider-thumb]:w-5 
                 [&::-webkit-slider-thumb]:h-5 
@@ -204,7 +204,7 @@ const TourFilter = ({
             value={selectedStartTime}
             onChange={(e) => setStartTime(e.target.value)}
             className="
-            w-[20rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400  mr-2
+             w-[18rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400  mr-2
             accent-orange-400
             [&::-webkit-slider-thumb]:w-5 
             [&::-webkit-slider-thumb]:h-5 
@@ -225,7 +225,7 @@ const TourFilter = ({
             value={selectedGroupSize}
             onChange={(e) => setGroupSize(e.target.value)}
             className="
-            w-[20rem] h-[2px]  rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
+            w-[18rem] h-[2px]  rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
             accent-orange-400
             [&::-webkit-slider-thumb]:w-5 
             [&::-webkit-slider-thumb]:h-5 

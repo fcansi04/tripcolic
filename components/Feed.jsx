@@ -16,7 +16,7 @@ const Feed = ({ filteredCards, setfilteredCards, popped, setpopped }) => {
               className="w-[25rem] rounded-lg relative flex-col flex gap-2 shadow-md p-4 bg-white "
             >
               <Image alt="place image" src={img}></Image>
-              <div className="absolute bgprimary500 text-white font-bold py-1 px-2 rounded-md top-44 left-6">
+              <div className="absolute bgprimary500 text-white font-bold py-1 px-2 rounded-md top-40 left-6">
                 {card.category}
               </div>
               <span className="material-symbols-outlined absolute top-6 right-6 textprimary500 bg-white rounded-md p-1 cursor-pointer">
