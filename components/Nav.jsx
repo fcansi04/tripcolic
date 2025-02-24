@@ -5,7 +5,7 @@ const Nav = ({ filteredCards, setfilteredCards, popped, setpopped }) => {
   const [category, setcategory] = useState("");
 
   return (
-    <nav className="flex h-full z-[1000]  justify-between mt-4 px-10 max-md:px-4 ">
+    <nav className="flex h-full   z-[1000]  justify-between mt-4 px-10 max-md:px-4 ">
       <div className="flex gap-2 ">
         <span
           className="material-symbols-outlined cursor-pointer shadow-md "
