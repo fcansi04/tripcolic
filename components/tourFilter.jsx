@@ -185,7 +185,7 @@ const TourFilter = ({
             value={selectedPrice}
             onChange={(e) => setPrice(e.target.value)}
             className="
-                w-[17rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
+                w-[16rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
                 accent-orange-400
                 [&::-webkit-slider-thumb]:w-5 
                 [&::-webkit-slider-thumb]:h-5 
@@ -204,7 +204,7 @@ const TourFilter = ({
             value={selectedStartTime}
             onChange={(e) => setStartTime(e.target.value)}
             className="
-             w-[17rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400  mr-2
+             w-[16rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400  mr-2
             accent-orange-400
             [&::-webkit-slider-thumb]:w-5 
             [&::-webkit-slider-thumb]:h-5 
@@ -225,7 +225,7 @@ const TourFilter = ({
             value={selectedGroupSize}
             onChange={(e) => setGroupSize(e.target.value)}
             className="
-            w-[17rem] h-[2px]  rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
+            w-[16rem] h-[2px]  rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
             accent-orange-400
             [&::-webkit-slider-thumb]:w-5 
             [&::-webkit-slider-thumb]:h-5 
