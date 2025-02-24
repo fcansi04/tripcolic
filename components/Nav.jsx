@@ -23,7 +23,7 @@ const Nav = ({ filteredCards, setfilteredCards, popped, setpopped }) => {
         <span className="material-symbols-outlined">account_circle</span>
       </div>
       <div
-        className={`mt-4 p-4 absolute z-[1000] bg-white top-10 border-2 rounded-3xl md:h-[50rem] max-md:[55rem]  flex flex-col  w-[95%]  ${
+        className={`mt-4  p-4 absolute z-[1000] bg-white top-10 border-2 rounded-3xl md:h-[50rem] max-md:[55rem]  flex flex-col  w-[93%]  ${
           popped ? "" : "hidden"
         }`}
       >

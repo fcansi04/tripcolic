@@ -14,6 +14,7 @@ export default function Home() {
         popped={popped}
         setpopped={setpopped}
       />
+
       <Feed
         filteredCards={filteredCards}
         setfilteredCards={setfilteredCards}
