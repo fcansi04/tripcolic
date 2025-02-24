@@ -189,8 +189,8 @@ const TourFilter = ({
             className="
                 w-[16rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
                 accent-orange-400
-                [&::-webkit-slider-thumb]:w-5 
-                [&::-webkit-slider-thumb]:h-5 
+                [&::-webkit-slider-thumb]:w-8 
+                [&::-webkit-slider-thumb]:h-8
                 [&::-webkit-slider-thumb]:bgprimary600 
                 [&::-webkit-slider-thumb]:rounded-full
                 [&::-webkit-slider-thumb]:cursor-pointer
@@ -203,15 +203,15 @@ const TourFilter = ({
 
           <input
             type="range"
-            min="0"
+            min="0.00"
             max="1440"
             value={selectedStartTime}
             onChange={(e) => setStartTime(e.target.value)}
             className="
              w-[16rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400  mr-2
             accent-orange-400
-            [&::-webkit-slider-thumb]:w-10
-            [&::-webkit-slider-thumb]:h-10 
+            [&::-webkit-slider-thumb]:w-8
+            [&::-webkit-slider-thumb]:h-8
             [&::-webkit-slider-thumb]:bgprimary600 
             [&::-webkit-slider-thumb]:rounded-full
             [&::-webkit-slider-thumb]:cursor-pointer
@@ -233,8 +233,8 @@ const TourFilter = ({
             className="
             w-[16rem] h-[2px]  rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
             accent-orange-400
-            [&::-webkit-slider-thumb]:w-5 
-            [&::-webkit-slider-thumb]:h-5 
+            [&::-webkit-slider-thumb]:w-8 
+            [&::-webkit-slider-thumb]:h-8 
             [&::-webkit-slider-thumb]:bgprimary600 
             [&::-webkit-slider-thumb]:rounded-full
             [&::-webkit-slider-thumb]:cursor-pointer
