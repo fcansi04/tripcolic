@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 import TourFilter from "./tourFilter";
-const Nav = ({ filteredCards, setfilteredCards }) => {
-  const [popped, setpopped] = useState(false);
+const Nav = ({ filteredCards, setfilteredCards, popped, setpopped }) => {
   const [category, setcategory] = useState("");
 
   return (

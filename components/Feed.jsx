@@ -3,11 +3,11 @@ import { tours } from "@/data/Cards";
 import Image from "next/image";
 import Link from "next/link";
 import img from "@/public/m1.jpg";
-const Feed = ({ filteredCards, setfilteredCards }) => {
+const Feed = ({ filteredCards, setfilteredCards, popped, setpopped }) => {
   console.log(filteredCards, "filteredcard");
   const cardsToShow = filteredCards?.length ? filteredCards : tours;
   return (
-    <div className="mt-20 ml-20 z-0 relative ">
+    <div className={`mt-20 ml-20 z-0 relative ${popped ? "hidden" : ""}`}>
       <div className="flex gap-10 flex-wrap rounded-lg ">
         {cardsToShow.map((card) => {
           return (
