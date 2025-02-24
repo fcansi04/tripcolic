@@ -33,3 +33,11 @@
   border-radius: 50%;
   cursor: pointer;
 }
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 700;
+}
+
+.icon {
+  font-size: 40px;
+  font-variation-settings: "FILL" 1, "wght" 700;
+}

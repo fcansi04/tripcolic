@@ -32,7 +32,6 @@ const TourFilter = ({
   const [selectedFeatures, setFeatures] = useState([]);
 
   const filteredTours = tours.filter((tour) => {
-    // Her koşulu ayrı ayrı kontrol edelim
     const locationCondition =
       location === "" || tour.location.includes(location);
     const categoryConditon =
@@ -48,16 +47,6 @@ const TourFilter = ({
     const featureCondition =
       selectedFeatures.length === 0 || selectedFeatures.includes(tour.features);
 
-    // Her koşulun sonucunu console'a yazdıralım
-    console.log(`Tour ${tour.id} conditions:`, {
-      location: locationCondition,
-      theme: themeCondition,
-      activity: activityCondition,
-      price: priceCondition,
-      vehicle: vehicleCondition,
-      feature: featureCondition,
-    });
-
     return (
       locationCondition &&
       themeCondition &&
@@ -67,6 +56,11 @@ const TourFilter = ({
       featureCondition
     );
   });
+  const formatTime = (minutes) => {
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+    return `${String(hours).padStart(2, "0")}:${String(mins).padStart(2, "0")}`;
+  };
 
   const handleButtonClick = (category, value) => {
     switch (category) {
@@ -117,6 +111,12 @@ const TourFilter = ({
     <div className="">
       <div className="flex flex-col gap-5">
         <div>
+          <h2
+            className="
+          mb-3 text-lg"
+          >
+            Location
+          </h2>
           <input
             type="text"
             value={location}
@@ -132,13 +132,13 @@ const TourFilter = ({
               setpopped(false);
               setfilteredCards(filteredTours);
             }}
-            className="material-symbols-outlined absolute top-20 left-[19rem]  textprimary600 cursor-pointer"
+            className="material-symbols-outlined absolute top-[122px] left-[19rem]  textprimary600 cursor-pointer"
           >
             search
           </span>
         </div>
         <div>
-          <h1 className="text-xl mb-2">Theme</h1>
+          <h1 className="text-lg mb-2">Theme</h1>
           <div className="flex gap-20 flex-wrap max-md:gap-5 ">
             {themes.map((theme) => {
               return (
@@ -158,7 +158,7 @@ const TourFilter = ({
           </div>
         </div>
         <div>
-          <h1 className="text-xl">Activity</h1>
+          <h1 className="text-lg">Activity</h1>
           <div className="flex flex-wrap gap-20 max-md:gap-5 mb-5 mt-2">
             {activities.map((activity) => {
               return (
@@ -203,22 +203,22 @@ const TourFilter = ({
 
           <input
             type="range"
-            min="0.00"
-            max="24.59"
+            min="0"
+            max="1440"
             value={selectedStartTime}
             onChange={(e) => setStartTime(e.target.value)}
             className="
              w-[16rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400  mr-2
             accent-orange-400
-            [&::-webkit-slider-thumb]:w-5 
-            [&::-webkit-slider-thumb]:h-5 
+            [&::-webkit-slider-thumb]:w-10
+            [&::-webkit-slider-thumb]:h-10 
             [&::-webkit-slider-thumb]:bgprimary600 
             [&::-webkit-slider-thumb]:rounded-full
             [&::-webkit-slider-thumb]:cursor-pointer
           "
           />
           <span className="p-2  w-4 border-2 rounded-md">
-            {selectedStartTime}
+            {formatTime(selectedStartTime)}
           </span>
         </div>
         <div className="mt-5 mb-5">
