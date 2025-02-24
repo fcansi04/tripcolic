@@ -3,7 +3,14 @@
 import { useState, useEffect } from "react";
 import { tours } from "@/data/Cards";
 
-const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
+const TourFilter = ({
+  popped,
+  filteredCards,
+  setfilteredCards,
+  setpopped,
+  category,
+  setcategory,
+}) => {
   const themes = ["Island Tour", "Land Tour", "Safari"];
   const activities = ["Swimming", "Elephant Care", "Snorkeling", "running"];
   const vehicles = [
@@ -28,6 +35,8 @@ const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
     // Her koşulu ayrı ayrı kontrol edelim
     const locationCondition =
       location === "" || tour.location.includes(location);
+    const categoryConditon =
+      category === "" || tour.category.includes(category);
     const themeCondition =
       selectedThemes.length === 0 || selectedThemes.includes(tour.theme);
     const activityCondition =
@@ -115,13 +124,15 @@ const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
               setLocation(e.target.value);
             }}
             placeholder="Where you wanna visit(italy,spain)"
-            className="outline-none  h-4 border-2 py-4 px-4 w-[20rem] md:[30rem]  rounded-lg"
+            className="outline-none  h-4 border-2 py-4 px-4 w-[25rem]   rounded-lg"
           />
           <span
-            onClick={() => {
-              () => setpopped(false);
+            onClick={(e) => {
+              e.preventDefault();
+              setpopped(false);
+              setfilteredCards(filteredTours);
             }}
-            className="material-symbols-outlined absolute top-20 left-[19rem] md:left-[29rem] textprimary600 cursor-pointer"
+            className="material-symbols-outlined absolute top-20 left-[24rem]  textprimary600 cursor-pointer"
           >
             search
           </span>
@@ -173,7 +184,15 @@ const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
             max="20000"
             value={selectedPrice}
             onChange={(e) => setPrice(e.target.value)}
-            className="w-[20rem]  range-slider mr-4"
+            className="
+                w-[20rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
+                accent-orange-400
+                [&::-webkit-slider-thumb]:w-5 
+                [&::-webkit-slider-thumb]:h-5 
+                [&::-webkit-slider-thumb]:bgprimary600 
+                [&::-webkit-slider-thumb]:rounded-full
+                [&::-webkit-slider-thumb]:cursor-pointer
+              "
           />
           <span className="p-2 w-4 border-2 rounded-md">{selectedPrice}</span>
         </div>
@@ -184,7 +203,15 @@ const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
             max="24.59"
             value={selectedStartTime}
             onChange={(e) => setStartTime(e.target.value)}
-            className="w-[20rem]  range-slider mr-4"
+            className="
+            w-[20rem] h-[2px] rounded-lg appearance-none cursor-pointer bg-gray-400  mr-2
+            accent-orange-400
+            [&::-webkit-slider-thumb]:w-5 
+            [&::-webkit-slider-thumb]:h-5 
+            [&::-webkit-slider-thumb]:bgprimary600 
+            [&::-webkit-slider-thumb]:rounded-full
+            [&::-webkit-slider-thumb]:cursor-pointer
+          "
           />
           <span className="p-2  w-4 border-2 rounded-md">
             {selectedStartTime}
@@ -197,7 +224,15 @@ const TourFilter = ({ popped, filteredCards, setfilteredCards, setpopped }) => {
             max="40"
             value={selectedGroupSize}
             onChange={(e) => setGroupSize(e.target.value)}
-            className="w-[20rem]  range-slider mr-4"
+            className="
+            w-[20rem] h-[2px]  rounded-lg appearance-none cursor-pointer bg-gray-400 mr-2
+            accent-orange-400
+            [&::-webkit-slider-thumb]:w-5 
+            [&::-webkit-slider-thumb]:h-5 
+            [&::-webkit-slider-thumb]:bgprimary600 
+            [&::-webkit-slider-thumb]:rounded-full
+            [&::-webkit-slider-thumb]:cursor-pointer
+          "
           />
           <span className="p-2 w-10 border-2 rounded-md">
             {selectedGroupSize}

@@ -17,7 +17,7 @@ const Feed = ({ filteredCards, setfilteredCards }) => {
             >
               <Image alt="place image" src={img}></Image>
               <div className="absolute bgprimary500 text-white font-bold py-1 px-2 rounded-md top-44 left-6">
-                Tour
+                {card.category}
               </div>
               <span className="material-symbols-outlined absolute top-6 right-6 textprimary500 bg-white rounded-md p-1 cursor-pointer">
                 favorite

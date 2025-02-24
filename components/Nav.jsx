@@ -3,6 +3,7 @@ import { useState } from "react";
 import TourFilter from "./tourFilter";
 const Nav = ({ filteredCards, setfilteredCards }) => {
   const [popped, setpopped] = useState(false);
+  const [category, setcategory] = useState("");
 
   return (
     <nav className="flex h-full z-[1000]  justify-between mt-4 px-10 max-md:px-4 ">
@@ -32,6 +33,8 @@ const Nav = ({ filteredCards, setfilteredCards }) => {
             className="bgprimary500 py-2 flex text-center text-white font-bold h-[40px] border-none rounded-md mb-5 "
             name=""
             id=""
+            value={category}
+            onChange={(e) => setcategory(e.target.value)}
           >
             <option value="TOURS" className="">
               TOUR
@@ -59,6 +62,8 @@ const Nav = ({ filteredCards, setfilteredCards }) => {
           filteredCards={filteredCards}
           setfilteredCards={setfilteredCards}
           setpopped={setpopped}
+          category={category}
+          setcategory={setcategory}
         />
       </div>
     </nav>

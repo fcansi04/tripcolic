@@ -9,6 +9,7 @@ export const tours = [
     activity: "Snorkelling",
     vehicle: "Speedboat",
     features: "vegetarian food",
+    category: "tour",
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ export const tours = [
     activity: "Swimming",
     vehicle: "Safari",
     features: "transfer",
+    category: "rent",
   },
   {
     id: 3,
@@ -31,5 +33,6 @@ export const tours = [
     activity: "Swimming",
     vehicle: "Yacht",
     features: "halal food",
+    category: "ticket",
   },
 ];
