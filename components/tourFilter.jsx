@@ -139,7 +139,7 @@ const TourFilter = ({
         </div>
         <div>
           <h1 className="text-xl mb-2">Theme</h1>
-          <div className="flex gap-20 flex-wrap max-md:gap-10">
+          <div className="flex gap-20 flex-wrap max-md:gap-5 ">
             {themes.map((theme) => {
               return (
                 <button
@@ -159,7 +159,7 @@ const TourFilter = ({
         </div>
         <div>
           <h1 className="text-xl">Activity</h1>
-          <div className="flex flex-wrap gap-20 max-md:gap-10 mb-5 mt-2">
+          <div className="flex flex-wrap gap-20 max-md:gap-5 mb-5 mt-2">
             {activities.map((activity) => {
               return (
                 <button
@@ -178,6 +178,8 @@ const TourFilter = ({
           </div>
         </div>
         <div className="mt-5 mb-5">
+          <h1 className="font-bold">Price</h1>
+
           <input
             type="range"
             min="0"
@@ -197,6 +199,8 @@ const TourFilter = ({
           <span className="p-2 w-4 border-2 rounded-md">{selectedPrice}</span>
         </div>
         <div className="mt-5 mb-5">
+          <h1 className="font-bold">Start time</h1>
+
           <input
             type="range"
             min="0.00"
@@ -218,6 +222,8 @@ const TourFilter = ({
           </span>
         </div>
         <div className="mt-5 mb-5">
+          <h1 className="font-bold">Group size</h1>
+
           <input
             type="range"
             min="0"
